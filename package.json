@@ -7,11 +7,12 @@
   "author": "MindfulMinun <importantmails4bc@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf ./docs ./dist; coffee -cbo dist/ src/; jsdoc ./dist/ -d ./docs/",
-    "watch": "rm -rf ./docs ./dist; coffee -bo dist/ -cw src/"
+    "build": "rm -rf ./docs ./dist; coffee -cbo dist/ src/; jsdoc -c jsdoc.json -t ./node_modules/foodoc/template -R README.md -r ./dist/",
+    "watch": "rm -rf ./docs ./dist; coffee -cbo dist/ -w src/"
   },
   "devDependencies": {
     "coffeescript": "^2.3.1",
+    "foodoc": "^0.0.9",
     "jsdoc": "^3.5.5"
   }
 }

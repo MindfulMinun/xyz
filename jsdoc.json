@@ -1,0 +1,10 @@
+{
+    "templates": {
+        "systemName": "xyz",
+        "systemSummary": "Yet another general purpose JavaScript library.",
+        "systemColor": "#448aff"
+    },
+    "opts": {
+        "destination": "./docs/"
+    }
+}

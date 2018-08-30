@@ -96,10 +96,6 @@ xyz.post = (url, data) ->
  * Calls a function for each element of the array, then returns that array.
  * @author MindfulMinun
  * @param {Array} arr - The array to loop over
- * @callback {Function} fn - The function to call on every array
- * @param {*} el - The element
- * @param {Number} i - The element’s index
- * @param {Array} arr - The array the element is a member of
  * @returns {Array} The array that was looped over
  * @since Aug 22, 2018
  * @example
