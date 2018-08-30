@@ -2,7 +2,7 @@
     "templates": {
         "systemName": "xyz",
         "systemSummary": "Yet another general purpose JavaScript library.",
-        "systemColor": "#448aff"
+        "systemColor": "#9c27b0"
     },
     "opts": {
         "destination": "./docs/"

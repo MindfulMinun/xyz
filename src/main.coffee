@@ -284,6 +284,36 @@ xyz.is = (a, b) ->
 xyz.type = (obj) ->
     Object::toString.call(obj).replace(/^\[object (.+)\]$/, '$1').toLowerCase()
 
+###*
+ * Writes properties from `sources` to `target` if they don’t exist.
+ * @author MindfulMinun
+ * @param {Object} target - The target to assign properties to.
+    This object will be mutated.
+ * @param {...Object} sources - The sources to assign properties from.
+ * @returns {Object} The mutated target
+ * @example
+ * xyz.defaults({
+ *     key: "value"
+ * }, {
+ *     key: "default value",
+ *     foo: "bar"
+ * })
+ * // -> { key: 'value', foo: 'bar' }
+ * @since Aug 30, 2018
+ * @version 0.1.0
+###
+xyz.defaults = (target, ...sources) ->
+    if not target?
+        throw Error "Argument `target` must be an object."
+    target = Object(target)
+
+    for source, i in sources
+        if source?
+            for key, value of source
+                if (not Object::hasOwnProperty.call(target, key))
+                    target[key] = source[key]
+    target
+
 
 ### *** Exports *** ###
 if this is window?
