@@ -4,7 +4,23 @@
 ###
 xyz = new Object
 
-#! XMLHttpRequest functions
+###*
+ * Gets some JSON from some url.
+ * @author MindfulMinun
+ * @param {String} url - The URL to get the data from.
+ * @returns {Promise<Response>}
+ * @example
+ * xyz.getJSON('https://jsonplaceholder.typicode.com/todos/1')
+ *     .then(console.log);
+ * // {
+ * //   "userId": 1,
+ * //   "id": 1,
+ * //   "title": "delectus aut autem",
+ * //   "completed": false
+ * // }
+ * @since Aug 30, 2018
+ * @version 0.1.0
+###
 xyz.getJSON = (url) ->
     new Promise (resolve, reject) ->
         r = new XMLHttpRequest
@@ -15,10 +31,22 @@ xyz.getJSON = (url) ->
                 resolve JSON.parse @response
             else
                 # Server reached, returned error
-                reject('xyz/get/server-error')
-        r.onerror = -> reject('xyz/get/connection-error')
+                reject @response
         r.send()
 
+###*
+ * Posts some JSON data to some url.
+ * @author MindfulMinun
+ * @param {String} url - The URL to post the data to.
+ * @param {Object} data - The data to post.
+ * @returns {undefined}
+ * @since Aug 30, 2018
+ * @example
+ * xyz.postJSON('https://jsonplaceholder.typicode.com/posts', {
+ *   "title": "My example JSON"
+ * });
+ * @version 0.1.0
+###
 xyz.postJSON = (url, data) ->
     r = new XMLHttpRequest
     r.open 'POST', url, yes
@@ -26,6 +54,14 @@ xyz.postJSON = (url, data) ->
     r.send data
     return
 
+###*
+ * Gets some data from some url.
+ * @author MindfulMinun
+ * @param {String} url - The URL to get the data from.
+ * @returns {Promise<Response>}
+ * @since Aug 30, 2018
+ * @version 0.1.0
+###
 xyz.get = (url) ->
     new Promise (resolve, reject) ->
         r = new XMLHttpRequest
@@ -36,14 +72,23 @@ xyz.get = (url) ->
                 resolve @response
             else
                 # Server reached, returned error
-                reject 'xyz/get/server-error'
-        r.onerror = -> reject 'xyz/get/connection-error'
+                reject @response
         r.send()
 
+###*
+ * Posts some data to some url.
+ * @author MindfulMinun
+ * @param {String} url - The URL to post the data to.
+ * @param {String} data - The data to post.
+ * @returns {undefined}
+ * @since Aug 30, 2018
+ * @version 0.1.0
+###
 xyz.post = (url, data) ->
     r = new XMLHttpRequest
     r.open 'POST', url, yes
-    r.setRequestHeader 'Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8'
+    r.setRequestHeader 'Content-Type', 'application/x-www-form-urlencoded;
+        charset=UTF-8'
     r.send data
     return
 
@@ -51,9 +96,16 @@ xyz.post = (url, data) ->
  * Calls a function for each element of the array, then returns that array.
  * @author MindfulMinun
  * @param {Array} arr - The array to loop over
- * @param {Function} fn - The function to call on every array
+ * @callback {Function} fn - The function to call on every array
+ * @param {*} el - The element
+ * @param {Number} i - The element’s index
+ * @param {Array} arr - The array the element is a member of
  * @returns {Array} The array that was looped over
  * @since Aug 22, 2018
+ * @example
+ * xyz.tap([1, 2, 3, 4, 5], function (el, i, arr) {
+ *     console.log(el);
+ * });
  * @version 0.1.0
 ###
 xyz.tap = (arr, fn) ->
@@ -68,6 +120,8 @@ xyz.tap = (arr, fn) ->
  * @param {Array} arr - The array to choose from
  * @returns {*} An array element
  * @private
+ * @example
+ * xyz._chooseArray([1, 2, 3, 4, 5]) // -> A random element
  * @since Aug 28, 2018
  * @version 0.1.0
 ###
@@ -78,7 +132,8 @@ xyz._chooseArray = (arr) ->
  * Retrieves an element from an array given its index.
  * @author MindfulMinun
  * @param {Array} arr - The array retrieve from
- * @param {Number} i - The index of the element to retrieve. If negative, the nth element from the end is returned.
+ * @param {Number} i - The index of the element to retrieve.
+    If negative, the nth element from the end is returned.
  * @returns {*} The nth element from the array.
  * @example
  * var arr = [0, 1, 2, 3, 4, 5]
@@ -103,6 +158,11 @@ xyz.nth = (arr, i) ->
  * @author MindfulMinun
  * @param {String} html - The HTML to parse
  * @returns {HTMLElement[]} - An array of HTML elements.
+ * @example
+ * xyz.parseHTML(`
+ *     <h1>My header</h1>
+ *     <p>My paragraph</p>
+ * `) // -> [h1, p]
  * @since Aug 23, 2018
  * @version 0.1.0
 ###
@@ -116,6 +176,9 @@ xyz.parseHTML = (html) ->
  * @author MindfulMinun
  * @param {String} unsafe - The unsafe string to escape
  * @returns {String} The escaped string
+ * @example
+ * xyz.escapeHTML('<my unsafe="string">')
+ * // -> '&lt;my unsafe=&quot;string&quot;&gt;'
  * @since Aug 24, 2018
  * @version 0.1.0
 ###
@@ -132,9 +195,11 @@ xyz.escapeHTML = (unsafe) ->
 ###*
  * Returns a random number between `min` and `max`, optionally floating.
  * @author MindfulMinun
- * @param {Number} [min] - The lower bound to generate numbers from. Defaults to 0.
- * @param {Number} [max] - The largest number to generate numbers from.
- * @param {Boolean} [float] - Whether to return a floating-point number or an integer. Defaults to false.
+ * @param {Number} [min] - The lower bound to generate numbers from.
+    Defaults to 0.
+ * @param {Number} [max] - The upper bound to generate numbers from.
+ * @param {Boolean} [float] - Whether to return a floating-point number or
+    an integer. Defaults to false.
  * @returns {Number} The randomly generated number.
  * @example
  * xyz.random()           // -> random float between 0 and 1
@@ -172,7 +237,8 @@ xyz.random = (min, max, float) ->
     if typeof float isnt "boolean"
         throw Error "Expected argument `float` to be a boolean."
     if min >= max
-        throw Error "Expected argument `min` (#{min}) to be less than `max` (#{max})"
+        throw Error "Expected argument `min` (#{min}) to be less
+            than `max` (#{max})"
 
     # [min, max, float]
 
@@ -207,7 +273,7 @@ xyz.is = (a, b) ->
 ###*
  * Determine the type of an object.
  * @author MindfulMinun
- * @param {*} a - The object's type to determine.
+ * @param {*} obj - The object with an unknown type.
  * @returns {String} The object's type.
  * @example
  * var set = new Set
@@ -219,8 +285,8 @@ xyz.is = (a, b) ->
  * @since Aug 28, 2018
  * @version 0.1.0
 ###
-xyz.type = (a) ->
-    Object::toString.call(a).replace(/^\[object (.+)\]$/, '$1').toLowerCase()
+xyz.type = (obj) ->
+    Object::toString.call(obj).replace(/^\[object (.+)\]$/, '$1').toLowerCase()
 
 
 ### *** Exports *** ###
