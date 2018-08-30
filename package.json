@@ -1,0 +1,17 @@
+{
+  "name": "xyz",
+  "version": "0.1.0",
+  "description": "xyz – another js library",
+  "main": "dist/main.js",
+  "repository": "https://github.com/MindfulMinun/xyz.git",
+  "author": "MindfulMinun <importantmails4bc@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf ./docs ./dist; coffee -cbo dist/ src/; jsdoc ./dist/ -d ./docs/",
+    "watch": "rm -rf ./docs ./dist; coffee -bo dist/ -cw src/"
+  },
+  "devDependencies": {
+    "coffeescript": "^2.3.1",
+    "jsdoc": "^3.5.5"
+  }
+}
