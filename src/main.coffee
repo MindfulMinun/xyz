@@ -18,7 +18,7 @@ xyz = new Object
  * //   "title": "delectus aut autem",
  * //   "completed": false
  * // }
- * @since Aug 30, 2018
+ * @since Aug 30, 2018 - 0.1.0
  * @version 0.1.0
 ###
 xyz.getJSON = (url) ->
@@ -40,7 +40,7 @@ xyz.getJSON = (url) ->
  * @param {String} url - The URL to post the data to.
  * @param {Object} data - The data to post.
  * @returns {undefined}
- * @since Aug 30, 2018
+ * @since Aug 30, 2018 - 0.1.0
  * @example
  * xyz.postJSON('https://jsonplaceholder.typicode.com/posts', {
  *   "title": "My example JSON"
@@ -59,7 +59,7 @@ xyz.postJSON = (url, data) ->
  * @author MindfulMinun
  * @param {String} url - The URL to get the data from.
  * @returns {Promise<Response>}
- * @since Aug 30, 2018
+ * @since Aug 30, 2018 - 0.1.0
  * @version 0.1.0
 ###
 xyz.get = (url) ->
@@ -81,7 +81,7 @@ xyz.get = (url) ->
  * @param {String} url - The URL to post the data to.
  * @param {String} data - The data to post.
  * @returns {undefined}
- * @since Aug 30, 2018
+ * @since Aug 30, 2018 - 0.1.0
  * @version 0.1.0
 ###
 xyz.post = (url, data) ->
@@ -97,7 +97,7 @@ xyz.post = (url, data) ->
  * @author MindfulMinun
  * @param {Array} arr - The array to loop over
  * @returns {Array} The array that was looped over
- * @since Aug 22, 2018
+ * @since Aug 22, 2018 - 0.1.0
  * @example
  * xyz.tap([1, 2, 3, 4, 5], function (el, i, arr) {
  *     console.log(el);
@@ -118,7 +118,7 @@ xyz.tap = (arr, fn) ->
  * @private
  * @example
  * xyz._chooseArray([1, 2, 3, 4, 5]) // -> A random element
- * @since Aug 28, 2018
+ * @since Aug 28, 2018 - 0.1.0
  * @version 0.1.0
 ###
 xyz._chooseArray = (arr) ->
@@ -137,7 +137,7 @@ xyz._chooseArray = (arr) ->
  * xyz.nth(arr, 4)  // -> 4
  * xyz.nth(arr, -0) // -> 5
  * xyz.nth(arr, -4) // -> 1
- * @since Aug 28, 2018
+ * @since Aug 28, 2018 - 0.1.0
  * @version 0.1.0
 ###
 xyz.nth = (arr, i) ->
@@ -159,7 +159,7 @@ xyz.nth = (arr, i) ->
  *     <h1>My header</h1>
  *     <p>My paragraph</p>
  * `) // -> [h1, p]
- * @since Aug 23, 2018
+ * @since Aug 23, 2018 - 0.1.0
  * @version 0.1.0
 ###
 xyz.parseHTML = (html) ->
@@ -175,7 +175,7 @@ xyz.parseHTML = (html) ->
  * @example
  * xyz.escapeHTML('<my unsafe="string">')
  * // -> '&lt;my unsafe=&quot;string&quot;&gt;'
- * @since Aug 24, 2018
+ * @since Aug 24, 2018 - 0.1.0
  * @version 0.1.0
 ###
 xyz.escapeHTML = (unsafe) ->
@@ -203,7 +203,7 @@ xyz.escapeHTML = (unsafe) ->
  * xyz.random(8, true)    // -> random float between 0 and 8
  * xyz.random(4, 8)       // -> random int between 4 and 8
  * xyz.random(4, 8, true) // -> random float between 4 and 8
- * @since Aug 23, 2018
+ * @since Aug 23, 2018 - 0.1.0
  * @version 0.1.0
 ###
 xyz.random = (min, max, float) ->
@@ -256,7 +256,7 @@ xyz.random = (min, max, float) ->
  * xyz.is(NaN, 0 / 0) // -> true
  * xyz.is(0, 0)       // -> true
  * xyz.is(-0, 0)      // -> false
- * @since Aug 28, 2018
+ * @since Aug 28, 2018 - 0.1.0
  * @version 0.1.0
 ###
 xyz.is = (a, b) ->
@@ -278,7 +278,7 @@ xyz.is = (a, b) ->
  * xyz.type(set) // -> "set"
  * xyz.type(map) // -> "map"
  * xyz.type(arr) // -> "array"
- * @since Aug 28, 2018
+ * @since Aug 28, 2018 - 0.1.0
  * @version 0.1.0
 ###
 xyz.type = (obj) ->
@@ -299,7 +299,7 @@ xyz.type = (obj) ->
  *     foo: "bar"
  * })
  * // -> { key: 'value', foo: 'bar' }
- * @since Aug 30, 2018
+ * @since Aug 30, 2018 - 0.1.0
  * @version 0.1.0
 ###
 xyz.defaults = (target, ...sources) ->

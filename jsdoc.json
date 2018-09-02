@@ -2,9 +2,22 @@
     "templates": {
         "systemName": "xyz",
         "systemSummary": "Yet another general purpose JavaScript library.",
-        "systemColor": "#9c27b0"
+        "systemColor": "#448aff",
+        "copyright": "xyz — Copyright &copy; 2018 MindfulMinun",
+        "navMembers": [
+            {"kind": "class", "title": "Classes", "summary": "All documented classes."},
+            {"kind": "external", "title": "Externals", "summary": "All documented external members."},
+            {"kind": "global", "title": "Globals", "summary": "All documented globals."},
+            {"kind": "mixin", "title": "Mixins", "summary": "All documented mixins."},
+            {"kind": "interface", "title": "Interfaces", "summary": "All documented interfaces."},
+            {"kind": "module", "title": "Modules", "summary": "All documented modules."},
+            {"kind": "namespace", "title": "Namespaces", "summary": "All documented namespaces."},
+            {"kind": "tutorial", "title": "Tutorials", "summary": "All available tutorials."}
+        ]
     },
     "opts": {
-        "destination": "./docs/"
+        "destination": "./docs/",
+        "template": "./node_modules/foodoc/template",
+        "recurse": true
     }
 }

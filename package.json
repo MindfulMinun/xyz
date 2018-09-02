@@ -7,7 +7,7 @@
   "author": "MindfulMinun <importantmails4bc@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf ./docs ./dist; coffee -cbo dist/ src/; jsdoc -c jsdoc.json -t ./node_modules/foodoc/template -R README.md -r ./dist/",
+    "build": "rm -rf ./docs ./dist; coffee -cbo dist/ src/; jsdoc -c jsdoc.json -R README.md ./dist/",
     "watch": "rm -rf ./docs ./dist; coffee -cbo dist/ -w src/"
   },
   "devDependencies": {
