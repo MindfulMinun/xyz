@@ -1,8 +1,10 @@
 ###*
- * The xyz namespace
- * @namespace
+ * The xyz object
+ * @global
 ###
 xyz = new Object
+
+require './math'
 
 ###*
  * Gets some JSON from some url.
