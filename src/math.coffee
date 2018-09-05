@@ -1,6 +1,6 @@
 xyz ?= {}
 
-###
+###*
  * The xyz.math namespace
  * @namespace
 ###

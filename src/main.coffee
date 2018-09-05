@@ -5,6 +5,7 @@
 xyz = new Object
 
 require './math'
+require './time'
 
 ###*
  * Gets some JSON from some url.
